@@ -9,14 +9,17 @@
 </head>
 <body>
 
-<header>
-    <h1>IPL 2026 Ticket Booking</h1>
-    <nav>
-        <a href="#matches">Matches</a> |
-        <a href="#booking">Book Ticket</a> |
-        <a href="#mybookings">My Bookings</a> |
-        <a href="#guidelines">Guidelines</a>
-    </nav>
+<header class="site-header">
+    <div class="nav-bar">
+        <h1><span class="logo">IPL</span> Ticket Booking <small>2026</small></h1>
+        <button id="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+        <nav id="main-nav" aria-label="Main navigation">
+            <a href="#matches">Matches</a>
+            <a href="#booking">Book Ticket</a>
+            <a href="#mybookings">My Bookings</a>
+            <a href="#guidelines">Guidelines</a>
+        </nav>
+    </div>
 </header>
 
 <section>
@@ -49,38 +52,42 @@
 
 <section id="matches">
     <h2>Match Schedule</h2>
-    <label>Filter Team:</label>
-    <select>
-        <option>All Teams</option>
-        <option>CSK</option>
-        <option>MI</option>
-        <option>RCB</option>
-        <option>KKR</option>
-        <option>SRH</option>
-    </select>
-
-    <table border="1" cellpadding="5">
-        <tr>
-            <th>Match No.</th><th>Teams</th><th>Date & Time</th>
-            <th>Venue</th><th>General</th><th>Premium</th>
-            <th>VIP</th><th>Action</th>
-        </tr>
-        <tr>
-            <td>1</td><td>RCB vs CSK</td><td>01 April, 7:30 PM</td>
-            <td>Bengaluru</td><td>800</td><td>2000</td>
-            <td>5000</td><td><a href="#booking" data-book>Book</a></td>
-        </tr>
-        <tr>
-            <td>2</td><td>MI vs KKR</td><td>02 April, 7:30 PM</td>
-            <td>Mumbai</td><td>1000</td><td>2500</td>
-            <td>6000</td><td><a href="#booking" data-book>Book</a></td>
-        </tr>
-        <tr>
-            <td>3</td><td>SRH vs RR</td><td>03 April, 7:30 PM</td>
-            <td>Hyderabad</td><td>700</td><td>1800</td>
-            <td>4500</td><td><a href="#booking" data-book>Book</a></td>
-        </tr>
-    </table>
+    <div class="schedule-controls">
+        <label for="team-filter">Filter by team</label>
+        <select id="team-filter">
+            <option value="">All teams</option>
+            <option>CSK</option>
+            <option>MI</option>
+            <option>RCB</option>
+            <option>KKR</option>
+            <option>SRH</option>
+            <option>RR</option>
+        </select>
+        <button type="button" id="view-toggle" aria-controls="match-cards">List view</button>
+    </div>
+    <div id="match-cards" class="card-grid">
+        <article class="match-card" data-teams="RCB CSK">
+            <p class="fixture">Match 1 · 01 April · 7:30 PM</p>
+            <h3>RCB vs CSK</h3>
+            <p>Bengaluru</p>
+            <p class="fares">General ₹800 · Premium ₹2,000 · VIP ₹5,000</p>
+            <a href="#booking" data-book>Book tickets</a>
+        </article>
+        <article class="match-card" data-teams="MI KKR">
+            <p class="fixture">Match 2 · 02 April · 7:30 PM</p>
+            <h3>MI vs KKR</h3>
+            <p>Mumbai</p>
+            <p class="fares">General ₹1,000 · Premium ₹2,500 · VIP ₹6,000</p>
+            <a href="#booking" data-book>Book tickets</a>
+        </article>
+        <article class="match-card" data-teams="SRH RR">
+            <p class="fixture">Match 3 · 03 April · 7:30 PM</p>
+            <h3>SRH vs RR</h3>
+            <p>Hyderabad</p>
+            <p class="fares">General ₹700 · Premium ₹1,800 · VIP ₹4,500</p>
+            <a href="#booking" data-book>Book tickets</a>
+        </article>
+    </div>
 </section>
 
 <section id="booking">
@@ -141,18 +148,20 @@
 
 <section id="guidelines">
     <h2>Ticket Guidelines</h2>
-    <article>
-        <h3>Ticket Verification</h3>
-        <p>Show your valid ticket at the stadium entrance.</p>
-    </article>
-    <article>
-        <h3>ID Proof Requirement</h3>
-        <p>Carry a valid government ID proof.</p>
-    </article>
-    <article>
-        <h3>Prohibited Items</h3>
-        <p>Sharp objects and fireworks are not allowed.</p>
-    </article>
+    <div class="card-grid">
+        <article>
+            <h3>Ticket Verification</h3>
+            <p>Show your valid ticket at the stadium entrance.</p>
+        </article>
+        <article>
+            <h3>ID Proof Requirement</h3>
+            <p>Carry a valid government ID proof.</p>
+        </article>
+        <article>
+            <h3>Prohibited Items</h3>
+            <p>Sharp objects and fireworks are not allowed.</p>
+        </article>
+    </div>
 </section>
 
 <footer>

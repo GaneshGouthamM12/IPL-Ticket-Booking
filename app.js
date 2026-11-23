@@ -21,6 +21,8 @@ function showToast(message) {
 document.querySelectorAll("[data-book]").forEach((link) => {
     link.addEventListener("click", (event) => {
         event.preventDefault();
+        match.value = link.closest(".match-card").querySelector("h3").textContent;
+        updateSummary();
         bookingSection.scrollIntoView({ behavior: "smooth" });
         showToast("Booking form opened. Enter your details to continue.");
     });
@@ -63,3 +65,39 @@ for (const control of [match, stand, tickets]) {
 tickets.addEventListener("input", updateSummary);
 tickets.form.addEventListener("reset", () => setTimeout(confirmUpdate, 0));
 updateSummary();
+
+// Activity 8 controls appear on the home page.
+const teamFilter = document.getElementById("team-filter");
+if (teamFilter) {
+    const cards = document.getElementById("match-cards");
+    const viewButton = document.getElementById("view-toggle");
+    const menuButton = document.getElementById("menu-toggle");
+    const navigation = document.getElementById("main-nav");
+
+    teamFilter.addEventListener("change", () => {
+        for (const card of cards.children) {
+            const teams = card.dataset.teams.split(" ");
+            card.hidden = Boolean(teamFilter.value) && !teams.includes(teamFilter.value);
+        }
+    });
+
+    viewButton.addEventListener("click", () => {
+        const listView = cards.classList.toggle("list-view");
+        viewButton.textContent = listView ? "Grid view" : "List view";
+    });
+
+    function setMenu(open) {
+        navigation.classList.toggle("is-open", open);
+        menuButton.setAttribute("aria-expanded", String(open));
+    }
+
+    menuButton.addEventListener("click", () => setMenu(!navigation.classList.contains("is-open")));
+    navigation.addEventListener("click", () => setMenu(false));
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && navigation.classList.contains("is-open")) {
+            setMenu(false);
+            menuButton.focus();
+        }
+    });
+    window.matchMedia("(max-width: 1024px)").addEventListener("change", () => setMenu(false));
+}

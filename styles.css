@@ -216,3 +216,51 @@ footer p { margin: 0; }
 .toast.visible {
     opacity: 1;
 }
+
+/* Activity 8: responsive navigation and schedule */
+.site-header { position: sticky; }
+body:has(.site-header) { padding-top: 0; }
+.nav-bar, #main-nav, .schedule-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.nav-bar { max-width: 1100px; margin: auto; justify-content: space-between; }
+.nav-bar h1 { margin: 0; font-size: 22px; }
+.nav-bar small { color: var(--accent); font-size: 14px; }
+.logo {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--primary);
+    padding: 0 8px;
+    border-radius: 4px;
+    font-style: italic;
+}
+#menu-toggle { display: none; }
+.schedule-controls { flex-wrap: wrap; margin-bottom: 18px; }
+#view-toggle { margin-left: auto; }
+.card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.card-grid article { margin: 0; }
+.match-card h3 { font-size: 22px; }
+.fixture { font-size: 14px; color: #445875; }
+.fares { border-top: 1px solid #ced8e4; padding-top: 10px; }
+.match-card a { color: var(--primary); font-weight: bold; }
+.list-view { grid-template-columns: 1fr; }
+.list-view .match-card { padding: 12px 18px; }
+@media (min-width: 1025px) {
+    .list-view .match-card { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+    .list-view .match-card[hidden] { display: none; }
+    .list-view .match-card > * { margin: 0; }
+    .list-view .fares { border: 0; padding: 0; }
+    .list-view a { margin-left: auto; }
+}
+@media (max-width: 1024px) {
+    .nav-bar { flex-wrap: wrap; gap: 6px; }
+    #menu-toggle { display: block; font-size: 20px; padding: 4px 12px; }
+    #main-nav { display: none; width: 100%; align-items: stretch; gap: 2px; }
+    #main-nav.is-open { display: flex; flex-direction: column; }
+    .card-grid { grid-template-columns: 1fr; }
+    .list-view .fixture, .list-view .fares { font-size: 13px; }
+    .list-view .match-card p { margin-bottom: 4px; }
+    .list-view .fares { padding: 0; border: 0; }
+}
