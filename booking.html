@@ -53,6 +53,15 @@
                 <input type="number" id="tickets"
                        min="1" max="6" step="1" required><br><br>
 
+                <article aria-labelledby="summary-title">
+                    <h3 id="summary-title">Booking Summary</h3>
+                    <p>Match: <span id="summary-match">Not Selected</span></p>
+                    <p>Stand: <span id="summary-stand">Not Selected</span></p>
+                    <p>Ticket Price: <span id="summary-price">₹0</span></p>
+                    <p>Quantity: <span id="summary-quantity">0</span></p>
+                    <p><strong>Total Amount: <span id="summary-total">₹0</span></strong></p>
+                </article>
+
                 <label>
                     <input type="checkbox" id="aisle-seat">
                     Prefer an aisle seat if available
@@ -63,5 +72,6 @@
             </form>
         </section>
     </main>
+    <script src="app.js"></script>
 </body>
 </html>

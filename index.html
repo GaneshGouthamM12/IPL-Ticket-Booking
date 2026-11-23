@@ -86,22 +86,33 @@
 <section id="booking">
     <h2>Ticket Booking Form</h2>
     <form>
-        Match:
-        <select required>
+        <label for="match">Match</label>
+        <select id="match" required>
+            <option value="" disabled selected>Select a match</option>
             <option>RCB vs CSK</option>
             <option>MI vs KKR</option>
             <option>SRH vs RR</option>
         </select><br><br>
 
-        Stand:
-        <select required>
+        <label for="stand">Stand Category</label>
+        <select id="stand" required>
+            <option value="" disabled selected>Select a stand</option>
             <option>General</option>
             <option>Premium</option>
             <option>VIP</option>
         </select><br><br>
 
-        Number of Tickets:
-        <input type="number" min="1" required><br><br>
+        <label for="tickets">Number of Tickets</label>
+        <input id="tickets" type="number" min="1" required><br><br>
+
+        <article aria-labelledby="summary-title">
+            <h3 id="summary-title">Booking Summary</h3>
+            <p>Match: <span id="summary-match">Not Selected</span></p>
+            <p>Stand: <span id="summary-stand">Not Selected</span></p>
+            <p>Ticket Price: <span id="summary-price">₹0</span></p>
+            <p>Quantity: <span id="summary-quantity">0</span></p>
+            <p><strong>Total Amount: <span id="summary-total">₹0</span></strong></p>
+        </article>
 
         Name:
         <input type="text" required><br><br>
@@ -115,17 +126,6 @@
         <button type="submit">Book Now</button>
         <button type="reset">Reset</button>
     </form>
-</section>
-
-<section>
-    <h2>Booking Summary</h2>
-    <article>
-        <p>Match: Not Selected</p>
-        <p>Stand: Not Selected</p>
-        <p>Ticket Price: ₹0</p>
-        <p>Quantity: 0</p>
-        <p>Total Amount: ₹0</p>
-    </article>
 </section>
 
 <section id="mybookings">
